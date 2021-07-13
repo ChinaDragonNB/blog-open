@@ -1,0 +1,74 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff">
+    <title>关于本站 - AK47007</title>
+    <link rel="stylesheet" th:href="@{~/css/header/app.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/font.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/header.css}">
+    <link rel="stylesheet" th:href="@{~/css/about/about.css}">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1171423_rhp8qmnjfii.css">
+
+</head>
+
+<body>
+<div class="w-loading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" hidden=""></div>
+<div th:include="common/menu::header(false,3)"></div>
+<main>
+    <div id="about">
+        <div class="dh1">关于本站</div>
+        <ul class="ul">
+            <li>本站名称：<a th:href="@{~/}" class="about_a">AK47凌凌漆的博客</a></li>
+            <li> 域名：<a href="https://www.ak47007.com" class="about_a">www.ak47007.com</a></li>
+            <li>上线日期：2019年4月25日</li>
+        </ul>
+        <div class="dh1">关于博主</div>
+        <ul class="ul">
+            <li>年龄：18</li>
+            <li>个人简介：培训时长两年半，喜欢增删改查</li>
+            <li>毕业院校：清华大学</li>
+            <li>兴趣爱好：编程、音乐、跑步、篮球、吹牛逼</li>
+            <li>荣获奖项：清华大学第250届吹牛逼大赛冠军</li>
+        </ul>
+        <div class="dh1">座右铭</div>
+        <ul class="ul">
+            <li>每天早上叫醒我的不是闹钟,是梦想</li>
+        </ul>
+        <div class="dh1">联系博主</div>
+        <ul class="ul">
+            <li>
+                <span class="iconfont icon-qq1">&emsp;<a href="http://wpa.qq.com/msgrd?v=3&uin=1520093660&site=qq&menu=yes" target="_blank" class="about_a">1520093660</a></span>
+            </li>
+            <li>
+                <span class="iconfont icon-youxiang1"></span>&emsp;
+                <a href="mailto:ChinaDragonNB@gmail.com" target="_blank" class="about_a"> ChinaDragonNB@gmail.com</a>
+            </li>
+            <li>
+                <span class="iconfont icon-github"></span>&emsp;
+                <a href="https://github.com/ChinaDragonNB" target="_blank" class="about_a">ChinaDragonNB</a></li>
+        </ul>
+    </div>
+</main>
+<footer class="w-footer" style="">
+
+</footer>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="div-footer">
+    <div style="text-align: center;font-size: 14px;">
+        &copy;2019-<span th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></span> AK47007 版权所有
+        有问题请联系站长&emsp;
+        <a href="http://www.beian.miit.gov.cn">湘ICP备19002654号</a>
+    </div>
+</div>
+</body>
+
+</html>

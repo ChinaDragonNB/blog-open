@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/blog?serverTimezone=Asia/Shanghai&autoReconnect=true
+    username: root
+    password: 123456
+    druid:
+      max-wait: 30000
+      query-timeout: 10
+      validation-query: SELECT 1
+      use-global-data-source-stat: true
+mybatis:
+  configuration:
+    #打印sql到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 80

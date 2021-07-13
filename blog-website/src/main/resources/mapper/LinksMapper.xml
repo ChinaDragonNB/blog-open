@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.LinksMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.Links">
+    <!--@mbg.generated-->
+    <!--@Table links-->
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="link" jdbcType="VARCHAR" property="link" />
+    <result column="logo" jdbcType="VARCHAR" property="logo" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="check_status" jdbcType="INTEGER" property="checkStatus" />
+    <result column="pass_time" jdbcType="TIMESTAMP" property="passTime" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, title, link, logo, email, check_status, pass_time, user_id
+  </sql>
+</mapper>

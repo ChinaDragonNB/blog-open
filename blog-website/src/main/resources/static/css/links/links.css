@@ -1,0 +1,339 @@
+body{
+    cursor: url("../../images/cur/normal.cur"), auto;
+}
+@media all and (min-width: 768px) {
+    .our-team {
+        width: 180px;
+        height: 190px;
+        padding-top: 20px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #dee1e6;
+        border-radius: 10%;
+        float: left;
+        margin-top: 30px;
+        margin-left: 35px;
+    }
+
+    .our-team .pic {
+        display: inline-block;
+        width: 100px;
+        height: 100px;
+        z-index: 1;
+        position: relative;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .our-team {
+        width: 160px;
+        height: 170px;
+        padding-top: 20px;
+        text-align: center;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #dee1e6;
+        border-radius: 10%;
+        float: left;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .our-team .pic {
+        display: inline-block;
+        width: 90px;
+        height: 90px;
+        z-index: 1;
+        position: relative;
+    }
+}
+
+body {
+    background-color: #FAFAFA;
+}
+
+#box {
+    width: 100%;
+}
+
+
+#box span a {
+    text-decoration: none;
+}
+
+#box span a:hover .title {
+    color: #EE2C2C;
+}
+
+
+.team-content {
+    margin-top: 25px;
+    overflow: hidden;
+}
+
+.our-team .pic:before {
+    content: "";
+    width: 100%;
+    height: 0;
+    border-radius: 50%;
+    background: #ee4266;
+    position: absolute;
+    bottom: 135%;
+    right: 0;
+    left: 0;
+    opacity: 0.2;
+    transform: scale(3);
+    transition: all 0.3s linear 0s;
+}
+
+.our-team:hover .pic:before {
+    height: 100%;
+}
+
+.our-team .pic:after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #ee4266;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.our-team .pic img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+    transform: scale(1);
+    transition: all 0.9s ease 0s;
+}
+
+.our-team:hover .pic img {
+    box-shadow: 0 0 0 14px #f7f5ec;
+    transform: scale(0.7);
+}
+
+.our-team .title {
+    font-size: 14px;
+    color: #000000;
+    letter-spacing: 1px;
+}
+
+
+.button {
+    color: #666;
+    background-color: #EEE;
+    font-weight: 300;
+    font-size: 16px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+    padding: 0 40px;
+    margin: 0;
+    display: inline-block;
+    appearance: none;
+    cursor: pointer;
+    border: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-transition-property: all;
+    transition-property: all;
+    -webkit-transition-duration: .3s;
+    transition-duration: .3s;
+}
+
+.button-primary,
+.button-primary-flat {
+    background-color: #1B9AF7;
+    border-color: #1B9AF7;
+    color: #FFF;
+}
+
+.button-primary:visited,
+.button-primary-flat:visited {
+    color: #FFF;
+}
+
+.button-primary:hover,
+.button-primary:focus,
+.button-primary-flat:hover,
+.button-primary-flat:focus {
+    background-color: #4cb0f9;
+    border-color: #4cb0f9;
+    color: #FFF;
+}
+
+.button-primary:active,
+.button-primary.active,
+.button-primary.is-active,
+.button-primary-flat:active,
+.button-primary-flat.active,
+.button-primary-flat.is-active {
+    background-color: #2798eb;
+    border-color: #2798eb;
+    color: #0880d7;
+}
+
+.button-pill {
+    border-radius: 200px;
+}
+
+@media all and (min-width: 768px) {
+    #tishi {
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+        border-radius: 40px;
+        padding-left: 20px;
+        padding-right: 20px;
+        line-height: 40px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        display: none;
+    }
+}
+
+@media all and (max-width: 768px) {
+    #tishi {
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+        border-radius: 30px;
+        padding-left: 15px;
+        padding-right: 15px;
+        line-height: 30px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+        display: none;
+        font-size: 14px;
+    }
+}
+
+#statement {
+    padding: 22px;
+    color: #fff;
+    background: url('../../images/line.jpg') no-repeat center top;
+    background-size: 100% 100%;
+}
+
+#statement a {
+    color: yellow;
+}
+
+#statement p {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.input_wrap {
+    width: 500px;
+    max-width: 100%;
+    position: relative;
+}
+
+.input_wrap .after {
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background: #fff;
+    left: 0;
+    bottom: 0;
+    -webkit-transform: scale(0, 1);
+    transform: scale(0, 1);
+    -webkit-transition: .3s;
+    transition: .3s;
+}
+
+.input_wrap span {
+    display: none;
+    font-size: 20px;
+    /*color: #fff;*/
+    position: absolute;
+    bottom: 50%;
+    -webkit-transition: margin .8s;
+    transition: margin .8s;
+    opacity: .8;
+    margin: 0;
+    left: 50%;
+    font-weight: 100;
+}
+
+.input_wrap span.in {
+    margin-bottom: 20px;
+}
+
+.input {
+    -webkit-appearance: none;
+    border-radius: 0;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    height: 60px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    font-size: 18px;
+    color: #FFFFFF;
+    -webkit-transition: .3s;
+    transition: .3s;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.input:focus::-webkit-input-placeholder {
+    opacity: 0;
+}
+
+.input:focus::-moz-placeholder {
+    opacity: 0;
+}
+
+.input:focus:-ms-input-placeholder {
+    opacity: 0;
+}
+
+.input:focus::placeholder {
+    opacity: 0;
+}
+
+.input:focus + .after {
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1);
+}
+
+.input::-webkit-input-placeholder {
+    -webkit-transition: .3s;
+    transition: .3s;
+    color: #FFFFFF;
+    font-weight: 900;
+}
+
+.input::-moz-placeholder {
+    -webkit-transition: .3s;
+    transition: .3s;
+    color: #FFFFFF;
+    font-weight: 900;
+}
+
+.input:-ms-input-placeholder {
+    -webkit-transition: .3s;
+    transition: .3s;
+    color: #FFFFFF;
+    font-weight: 900;
+}
+
+.input::placeholder {
+    -webkit-transition: .3s;
+    transition: .3s;
+    color: #FFFFFF;
+    font-weight: 900;
+}

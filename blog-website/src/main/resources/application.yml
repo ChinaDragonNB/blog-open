@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: @package.environment@
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.ak47007.model
+  configuration:
+    #开启驼峰命名规则
+    map-underscore-to-camel-case: true
+    #打印sql到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 获取ip信息的key
+ip-key: XXX

@@ -1,0 +1,112 @@
+body {
+    cursor: url("../../images/cur/normal.cur"), auto;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.htmleaf-container {
+    background-color: #F1F3F4;
+    margin: 0 auto;
+    text-align: center;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding-top: 50px;
+
+}
+
+.characters {
+    display: inline-block;
+    width: 100%;
+    list-style-type: none;
+    margin: 15px -5px 0;
+    padding: 0;
+}
+
+.characters li {
+    display: inline-block;
+    position: relative;
+    margin: 25px;
+    padding: 0;
+    width: 100px;
+    height: 100px;
+}
+
+
+.characters img {
+    width: 60px;
+    height: 60px;
+    -webkit-transform: scale(.5);
+    -ms-transform: scale(.5);
+    transform: scale(.5);
+}
+
+
+#original:checked ~ .characters [data-teams~="original"] h2,
+#force:checked ~ .characters [data-teams~="force"] h2,
+#factor:checked ~ .characters [data-teams~="factor"] h2,
+#hellfire:checked ~ .characters [data-teams~="hellfire"] h2 {
+    display: block;
+}
+
+#original:checked ~ .characters [data-teams~="original"] img,
+#force:checked ~ .characters [data-teams~="force"] img,
+#factor:checked ~ .characters [data-teams~="factor"] img,
+#hellfire:checked ~ .characters [data-teams~="hellfire"] img {
+    -webkit-animation: avatar .3s forwards;
+    animation: avatar .3s forwards;
+}
+
+/* fade in and expand image to full size, with a slight bounce */
+@-webkit-keyframes avatar {
+    70% {
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes avatar {
+    70% {
+        opacity: 1;
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .characters {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 740px) {
+    .characters {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 60px;
+    }
+}
+
+@media only screen and (min-width: 980px) {
+    .characters {
+        width: 100%;
+    }
+}

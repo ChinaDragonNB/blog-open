@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.TagMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.Tag">
+    <!--@mbg.generated-->
+    <!--@Table tags-->
+    <id column="tag_id" jdbcType="BIGINT" property="tagId" />
+    <result column="tag_name" jdbcType="VARCHAR" property="tagName" />
+    <result column="tag_logo" jdbcType="VARCHAR" property="tagLogo" />
+    <result column="tag_type" jdbcType="INTEGER" property="tagType" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    tag_id, tag_name, tag_logo, tag_type, user_id
+  </sql>
+</mapper>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="shortcut icon" th:href="@{~/favicon.ico}" type="image/x-icon"/>
+    <script th:src="@{~/js/common/bootstrap.js}"></script>
+    <script th:src="@{~/js/common/default-4ae3dc8c.js}" type="module"></script>
+</head>
+<body>
+<div th:fragment="header(isSearch,active)">
+    <web-header role="navigation">
+        <button class="w-button--icon w-button--round web-header__hamburger-btn" aria-label="Open menu">
+            <span class="w-tooltip w-tooltip--left">Open menu</span>
+        </button>
+
+        <a th:href="@{~/}" class="web-header__logo-link gc-analytics-event">
+            <img class="web-header__logo" th:src="@{~/images/logo.svg}" alt="web.dev">
+        </a>
+
+        <div class="web-header__middle">
+            <div class="web-header__links">
+                <a th:href="@{~/article}" class="web-header__link gc-analytics-event" th:classappend="${active==1}?'head-active':''">文章 </a>
+                <a th:href="@{~/tag}" class="web-header__link gc-analytics-event" th:classappend="${active==2}?'head-active':''"> 标签 </a>
+                <a th:href="@{~/about}" class="web-header__link gc-analytics-event" th:classappend="${active==3}?'head-active':''"> 关于 </a>
+                <a th:href="@{~/friends}" class="web-header__link gc-analytics-event" th:classappend="${active==4}?'head-active':''"> 友情链接 </a>
+            </div>
+            <web-search th:if="${isSearch}"></web-search>
+        </div>
+    </web-header>
+    <web-side-nav class="" aria-hidden="true" inert="">
+        <nav class="web-side-nav__container">
+            <div class="web-side-nav__header">
+                <button data-icon="close" class="w-button--icon w-button--round web-side-nav__hide" aria-label="Close"
+                        tabindex="-1">
+                    <span class="w-tooltip">Close</span>
+                </button>
+                <a th:href="@{~/index}" class="gc-analytics-event" tabindex="-1">
+                    <img class="web-side-nav__logo" th:src="@{~/images/logo.svg}" alt="web.dev">
+                </a>
+            </div>
+            <a th:href="@{~/article}" class="web-side-nav__link gc-analytics-event" tabindex="-1" th:classappend="${active==1}?'head-active':''"> 文章 </a>
+            <a th:href="@{~/tag}" class="web-side-nav__link gc-analytics-event" tabindex="-1" th:classappend="${active==2}?'head-active':''"> 标签 </a>
+            <a th:href="@{~/about}" class="web-side-nav__link gc-analytics-event" tabindex="-1" th:classappend="${active==3}?'head-active':''"> 关于 </a>
+            <a th:href="@{~/friends}" class="web-side-nav__link gc-analytics-event" tabindex="-1" th:classappend="${active==4}?'head-active':''"> 友情链接 </a>
+
+        </nav>
+
+    </web-side-nav>
+</div>
+
+</body>
+</html>

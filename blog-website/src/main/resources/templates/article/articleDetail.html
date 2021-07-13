@@ -1,0 +1,110 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="${article.title}+' - AK47007'"></title>
+    <link rel="stylesheet" th:href="@{~/css/header/app.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/font.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/header.css}">
+    <link rel="stylesheet" th:href="@{~/css/article/articleDetail.css}">
+    <link rel="stylesheet" th:href="@{~/css/article/vue.css}">
+    <style>
+        .pre-copy {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            font-size: 12px;
+            color: #4d4d4d;
+            background-color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.05);
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div th:include="common/menu::header(true,1)"></div>
+<main style="padding-top: 10px">
+    <div id="article-main">
+        <button class="sidebar-toggle" aria-label="Menu">
+            <div class="sidebar-toggle-button"><span></span><span></span><span></span></div>
+        </button>
+        <aside class="sidebar" style="margin-top:60px">
+            <div class="sidebar-nav">
+            </div>
+        </aside>
+        <section class="content">
+            <article-title style="text-align:center;">
+                <h1 style="font-size: 35px;" th:text="${article.title}"></h1>
+            </article-title>
+            <br>
+            <article-info style="text-align: center">
+                <p style="font-size: 14px;">
+                    <span class="article-type" th:text="${article.articleTypeName}"></span>&nbsp;
+                    <span style="font-size: 15px;" th:text="${article.addTime}"></span>&emsp;
+                    <span th:text="'阅读  '+${article.countView}"></span>
+                    &emsp;最后编辑于: <span th:text="${article.updateTime}"></span>
+                </p>
+            </article-info>
+            <hr class="article-line"/>
+            <article class="markdown-section" id="main">
+            </article>
+            <div style="text-align: center;font-size: 14px;">
+                &copy;2019-<span th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></span> AK47007 版权所有
+                有问题请联系站长&emsp; <a href="http://www.beian.miit.gov.cn">湘ICP备19002654号</a>
+            </div>
+        </section>
+    </div>
+
+</main>
+<input type="hidden" th:value="${article.uuid}" id="uuid">
+<script th:src="@{~/js/common/jquery-1.12.4.min.js}"></script>
+<script th:src="@{~/js/article/docsify.min.js}"></script>
+<script th:src="@{~/js/article/articleDetailUtils.js}"></script>
+<script th:src="@{~/js/article/code-highlight/prism.js}"></script>
+<script>
+    $(function () {
+        copyCode()
+
+        function copyCode() {
+            $.each($('pre'), function (index, ele) {
+                var html = '<div class="pre-copy">复制代码</div>'
+                $(ele).append(html)
+                $(ele).bind('mouseover', function () {
+                    $(this).children('div.pre-copy').show()
+                })
+                $(ele).bind('mouseout', function () {
+                    $(this).children('div.pre-copy').hide()
+                })
+                $('.pre-copy').bind('click', function () {
+                    const code = $(this).prev().text()
+                    copy(code)
+                })
+            })
+
+            /**
+             * 复制文字
+             * @param text 文字内容
+             */
+            function copy(text) {
+                // 用textarea才支持换行
+                var textareaEl = document.createElement('textarea');
+                textareaEl.setAttribute('readonly', 'readonly'); // 防止手机上弹出软键盘
+                textareaEl.value = text;
+                document.body.appendChild(textareaEl);
+                textareaEl.select();
+                var res = document.execCommand('copy');
+                document.body.removeChild(textareaEl);
+                return res;
+            }
+        }
+    })
+</script>
+<footer class="w-footer">
+
+</footer>
+</body>
+</html>

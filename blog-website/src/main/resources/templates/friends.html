@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff">
+    <title>友情链接 - AK47007</title>
+    <link rel="stylesheet" th:href="@{~/css/header/app.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/font.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/header.css}">
+    <link rel="stylesheet" th:href="@{~/css/links/links.css}">
+</head>
+
+<body class="">
+<div class="w-loading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" hidden=""></div>
+<div th:include="common/menu::header(false,4)"></div>
+<main>
+    <div id="tishi">
+        <span class="tishitext">申请友情链接成功！</span>
+    </div>
+    <div align="center" id="statement">
+        <h2 class="button button-primary button-pill" id="apply">申请友链</h2>
+        <p>网站名称：<a>AK47凌凌漆的博客</a></p>
+        <p>网站链接：<a> https://www.ak47007.com</a></p>
+        <p>网站logo：<a>https://www.ak47007.com/007.jpg</a></p>
+        <h4><b>各位申请的时候记得将本站设为贵站的友链哦</b></h4>
+        <div id="div_form">
+            <form th:action="@{~/friends/applyFriend}" method="post">
+                <div class="input_wrap">
+                    <input class="input" type="text" placeholder="网站名称" spellcheck="false" id="title" name="title"/>
+                    <div class="after"></div>
+                </div>
+                <div class="input_wrap">
+                    <input type="text" class="input" placeholder="网站链接" spellcheck="false" id="link" name="link"/>
+                    <div class="after"></div>
+                </div>
+                <div class="input_wrap">
+                    <input type="text" class="input" placeholder="网站logo链接" spellcheck="false" id="logoLink"
+                           name="logo"/>
+                    <div class="after"></div>
+                </div>
+                <div class="input_wrap">
+                    <input type="text" class="input" placeholder="邮箱(选填)" spellcheck="false" id="email" name="email"/>
+                    <div class="after"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="box" style="margin-bottom: 500px">
+    <span th:each="links: ${linksList}">
+        <a th:href="${links.link} " target="_blank">
+            <div class="our-team hvr-glow">
+                <div class="pic">
+                    <img th:src="${links.logo}">
+                </div>
+                <div class="team-content">
+                 <h3 class="title" th:text="${links.title}"></h3>
+                </div>
+            </div>
+        </a>
+    </span>
+    </div>
+
+    <script th:src="@{~/js/common/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{~/js/links/links.js}"></script>
+</main>
+<footer class="w-footer" style="clear: both;margin-top: 250px">
+    <div style="text-align: center;font-size: 14px;clear: both;">
+        &copy;2019-<span th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></span> AK47007 版权所有 有问题请联系站长&emsp;
+        <a href="http://www.beian.miit.gov.cn">湘ICP备19002654号</a>
+    </div>
+</footer>
+
+</body>
+
+</html>

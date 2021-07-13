@@ -1,0 +1,89 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff">
+    <title>文章 - AK47007</title>
+    <link rel="stylesheet" th:href="@{~/css/header/app.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/font.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/header.css}">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1171423_hvv195mzc47.css">
+    <link rel="stylesheet" th:href="@{~/css/article/common.css}">
+    <link rel="stylesheet" th:href="@{~/css/article/article.css}">
+    <link rel="stylesheet" th:href="@{~/css/article/page.css}">
+
+</head>
+
+<body>
+<div class="w-loading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" hidden=""></div>
+<div th:include="common/menu::header(true,1)"></div>
+<main style="padding: 10px;">
+    <div th:if="${!isNull}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 articleList" th:each="article : ${response.list}">
+                    <div class="plugthumb hvr-glow">
+                        <div class="tp">
+                            <figure class="effect-bubba" style="cursor:pointer;">
+                                <img th:src="${article.cover}" width="100%" height="100%">
+                                <figcaption>
+                                    <p>
+                                        <span class="iconfont icon-check-line" style="font-size: 12px">&nbsp;<span th:text="${article.countView}"/></span>
+                                    </p>
+                                    <p>
+                                        <span class="iconfont icon-biaoqian" style="font-size: 12px">&nbsp;<span th:text="${article.tagName}"/></span>
+                                    </p>
+                                    <p>
+                                        <span class="iconfont icon-bianji-copy" style="font-size: 12px">&nbsp;<span th:text="${article.editTime}"/></span>
+                                    </p>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="plug-info">
+                            <div class="plug-title">
+                                <a th:href="@{'~/article/detail/'+${article.uuid}}" target="_blank"><b th:text="${article.title}"></b></a>
+                            </div>
+                            <div class="plug-description" style="font-size: 14px;"
+                                 th:text="${article.articleDescribe}"></div>
+                        </div>
+                        <div class="plug-mesg">
+                            <div class="div-ul">
+                                <div class="div-li" th:each="articleTag:${article.articleTagList}">
+                                    <a th:href="@{'~/article?tag='+${articleTag.tagName}}">
+                                        <img th:src="${articleTag.tagLink}" style="width: 24px;height: 24px;" th:alt="${articleTag.tagName}" th:title="${articleTag.tagName}">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="div-time">
+                                <span class="iconfont icon-shijian" style="font-size: 13px;">&nbsp;<span th:text="${article.publishTime}"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="p1" align="center">
+            <ul id="page_ul">
+                <a th:href="${response.prePage==1?'/article':'/article/'+response.prePage}" th:style="${!response.hasPreviousPage?'display:none':''}"><</a>
+                <a th:each="page : ${response.navigatepageNums}" th:href="${page==1?'/article':'/article/'+page}" th:class="${page==response.pageNum?'is-active':''}">
+                    <li th:text="${page}"></li>
+                </a>
+                <a th:href="@{'~/article/'+${response.nextPage}}" th:style="${!response.hasNextPage?'display:none':''}">></a>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align: center;font-size: 14px;position: absolute;bottom: 0;left: 0;right: 0">
+        &copy;2019-<span th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></span> AK47007 版权所有
+        有问题请联系站长&emsp;
+        <a href="http://www.beian.miit.gov.cn">湘ICP备19002654号</a>
+    </div>
+
+</main>
+
+<footer class="w-footer">
+
+</footer>
+</body>
+
+</html>

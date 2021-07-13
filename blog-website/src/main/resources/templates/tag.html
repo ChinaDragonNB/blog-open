@@ -1,0 +1,38 @@
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#fff">
+    <title>标签 - AK47007</title>
+    <link rel="stylesheet" th:href="@{~/css/header/app.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/font.css}">
+    <link rel="stylesheet" th:href="@{~/css/header/header.css}">
+    <link rel="stylesheet" th:href="@{~/css/tag/tag.css}">
+</head>
+
+<body>
+<div class="w-loading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" hidden=""></div>
+<div th:include="common/menu::header(false,2)"></div>
+<main>
+    <div class="htmleaf-container">
+        <ul class="characters">
+            <li th:each="tag:${tagList}">
+                <a th:href="@{'~/article?tag='+${tag.tagName}}">
+                    <img th:src="${tag.tagLogo}" th:alt="${tag.tagName}" th:title="${tag.tagName}">
+                </a>
+            </li>
+        </ul>
+
+    </div>
+
+</main>
+<footer class="w-footer" style="">
+
+</footer>
+<div style="text-align: center;font-size: 14px;position: absolute;bottom: 0;left: 0;right: 0">
+    &copy;2019-<span th:text="${#dates.format(new java.util.Date().getTime(), 'yyyy')}"></span> AK47007 版权所有 有问题请联系站长&emsp;
+    <a
+            href="http://www.beian.miit.gov.cn">湘ICP备19002654号</a>
+</div>
+</body>
