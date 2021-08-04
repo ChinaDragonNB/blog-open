@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.SysRoleMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.SysRole">
+    <!--@mbg.generated-->
+    <!--@Table `sys_role`-->
+    <id column="id" property="id" />
+    <result column="role_name_en" property="roleNameEn" />
+    <result column="role_name_cn" property="roleNameCn" />
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="state" property="state" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `id`, `role_name_en`, `role_name_cn`, `create_time`, `create_user`, `state`
+  </sql>
+</mapper>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.ViewTbArticleMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.vo.ViewTbArticle">
+    <!--@mbg.generated-->
+    <!--@Table view_tb_article-->
+    <result column="id" jdbcType="BIGINT" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="article_describe" jdbcType="VARCHAR" property="articleDescribe" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="edit_time" jdbcType="TIMESTAMP" property="editTime" />
+    <result column="tag_id" jdbcType="BIGINT" property="tagId" />
+    <result column="state" jdbcType="INTEGER" property="state" />
+    <result column="is_stickie" jdbcType="INTEGER" property="isStickie" />
+    <result column="article_type" jdbcType="INTEGER" property="articleType" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="article_content" jdbcType="LONGVARCHAR" property="articleContent" />
+    <result column="count_view" jdbcType="BIGINT" property="countView" />
+    <result column="count_comment" jdbcType="BIGINT" property="countComment" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, uuid, cover, title, article_describe, publish_time, edit_time, tag_id, `state`, 
+    is_stickie, article_type, user_id, article_content, count_view, count_comment
+  </sql>
+</mapper>

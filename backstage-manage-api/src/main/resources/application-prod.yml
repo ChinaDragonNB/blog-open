@@ -1,0 +1,65 @@
+spring:
+  #数据源配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/blog?serverTimezone=Asia/Shanghai&autoReconnect=true
+    username: root
+    password: 123456
+    druid:
+      max-wait: 30000
+      query-timeout: 10
+      validation-query: SELECT 1
+      use-global-data-source-stat: true
+  #Redis配置
+  redis:
+    # Redis数据库索引（默认为0）
+    database: 0
+    # Redis服务器地址
+    host: 127.0.0.1
+    # Redis服务器连接端口
+    port: 6379
+    # Redis 连接密码
+    password:
+    # 连接超时时间（毫秒）
+    timeout: 20000
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: -1
+        # 连接池最大阻塞等待p0时间（使用负值表示没有限制）
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池中的最小空闲连接
+        min-idle: 0
+  # jackson
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+mybatis:
+  configuration:
+    #打印sql到控制台
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# 日志
+logging:
+  level:
+    # 打印日志等级
+    root: info
+# 阿里云OSS对象存储
+ali-oss:
+  # 默认地域节点
+  default-endpoint: XXX
+  # 自定义地域节点
+  custom-endpoint: xxx
+  # id
+  access-key-id: xxx
+  # 秘钥
+  access-key-secret: xxx
+  # 存储空间名
+  bucket-name: xxx
+# 自定义
+custom:
+  # markdown文件路径前缀
+  markdown-url: xxx
+
+

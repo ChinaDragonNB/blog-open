@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.SysAuthorityMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.SysAuthority">
+    <!--@mbg.generated-->
+    <!--@Table `sys_authority`-->
+    <id column="id" property="id" />
+    <result column="authority_name_en" property="authorityNameEn" />
+    <result column="authority_name_cn" property="authorityNameCn" />
+    <result column="parent_id" property="parentId" />
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="state" property="state" />
+    <result column="order" property="order" />
+    <result column="is_common" property="isCommon" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `id`, `authority_name_en`, `authority_name_cn`, `parent_id`, `create_time`, `create_user`, 
+    `state`, `order`, `is_common`
+  </sql>
+
+  <select id="getMaxOrder" resultType="java.lang.Integer">
+    SELECT
+            IFNULL( max( `ORDER` ), 0 ) + 1
+    FROM
+            sys_authority
+    WHERE
+            parent_id =#{parentId}
+    </select>
+</mapper>

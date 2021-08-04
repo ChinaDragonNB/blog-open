@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.SysDictMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.SysDict">
+    <!--@mbg.generated-->
+    <!--@Table `sys_dict`-->
+    <id column="id" property="id" />
+    <result column="parent_id" property="parentId" />
+    <result column="dict_name" property="dictName" />
+    <result column="dict_code" property="dictCode" />
+    <result column="dict_type" property="dictType" />
+    <result column="dict_value" property="dictValue" />
+    <result column="dict_state" property="dictState" />
+    <result column="dict_sort" property="dictSort" />
+    <result column="dict_remark" property="dictRemark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `id`, `parent_id`, `dict_name`, `dict_code`, `dict_type`, `dict_value`, `dict_state`, 
+    `dict_sort`, `dict_remark`
+  </sql>
+
+    <select id="getItemsByCode" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM sys_dict
+        WHERE parent_id = (
+                SELECT id
+                FROM sys_dict
+                WHERE dict_code = #{dictCode})
+    </select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.ViewBrowseListMapper">
+    <resultMap id="BaseResultMap" type="com.ak47007.model.vo.ViewBrowseList">
+        <!--@mbg.generated-->
+        <!--@Table view_browse_list-->
+        <result column="title" jdbcType="VARCHAR" property="title"/>
+        <result column="id" jdbcType="BIGINT" property="id"/>
+        <result column="article_id" jdbcType="BIGINT" property="articleId"/>
+        <result column="browse_ip" jdbcType="VARCHAR" property="browseIp"/>
+        <result column="browse_time" jdbcType="TIMESTAMP" property="browseTime"/>
+        <result column="browse_date" jdbcType="DATE" property="browseDate"/>
+        <result column="ip_location" jdbcType="VARCHAR" property="ipLocation"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        title, id, article_id, browse_ip, browse_time, browse_date, ip_location
+    </sql>
+
+</mapper>

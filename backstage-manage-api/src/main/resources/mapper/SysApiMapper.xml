@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.SysApiMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.SysApi">
+    <!--@mbg.generated-->
+    <!--@Table `sys_api`-->
+    <id column="id" property="id" />
+    <result column="api_url" property="apiUrl" />
+    <result column="description" property="description" />
+    <result column="parent_id" property="parentId" />
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="update_time" property="updateTime" />
+    <result column="update_user" property="updateUser" />
+    <result column="order" property="order" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `id`, `api_url`, `description`, `parent_id`, `create_time`, `create_user`, `update_time`, 
+    `update_user`, `order`
+  </sql>
+
+</mapper>

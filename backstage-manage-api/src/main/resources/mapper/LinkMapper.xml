@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.LinkMapper">
+    <resultMap id="BaseResultMap" type="com.ak47007.model.Link">
+        <!--@mbg.generated-->
+        <!--@Table `links`-->
+        <id column="id" property="id"/>
+        <result column="title" property="title"/>
+        <result column="link" property="link"/>
+        <result column="logo" property="logo"/>
+        <result column="email" property="email"/>
+        <result column="check_status" property="checkStatus"/>
+        <result column="pass_time" property="passTime"/>
+        <result column="user_id" property="userId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        <!--@mbg.generated-->
+        `id`, `title`, `link`, `logo`, `email`, `check_status`, `pass_time`, `user_id`
+    </sql>
+
+    <select id="getCount" resultType="int">
+        select count(1)
+        from links
+        where check_status = 2
+          and user_id = #{userId}
+    </select>
+    <select id="linkLine" resultType="com.ak47007.model.dto.LinkLineDTO">
+        SELECT sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '01' THEN 1 ELSE 0 END) AS 'january',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '02' THEN 1 ELSE 0 END) AS 'february',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '03' THEN 1 ELSE 0 END) AS 'march',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '04' THEN 1 ELSE 0 END) AS 'april',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '05' THEN 1 ELSE 0 END) AS 'may',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '06' THEN 1 ELSE 0 END) AS 'june',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '07' THEN 1 ELSE 0 END) AS 'july',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '08' THEN 1 ELSE 0 END) AS 'august',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '09' THEN 1 ELSE 0 END) AS 'september',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '10' THEN 1 ELSE 0 END) AS 'october',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '11' THEN 1 ELSE 0 END) AS 'november',
+               sum(CASE DATE_FORMAT(pass_time, '%m') WHEN '12' THEN 1 ELSE 0 END) AS 'december'
+        FROM links
+        WHERE YEAR(pass_time) = YEAR(now())
+          AND check_status = #{status}
+          AND user_id = #{userId}
+    </select>
+</mapper>

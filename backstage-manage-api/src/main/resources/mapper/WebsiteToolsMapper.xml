@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ak47007.mapper.WebsiteToolsMapper">
+  <resultMap id="BaseResultMap" type="com.ak47007.model.WebsiteTools">
+    <!--@mbg.generated-->
+    <!--@Table tb_website_tools-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="website_name" jdbcType="VARCHAR" property="websiteName" />
+    <result column="website_url" jdbcType="VARCHAR" property="websiteUrl" />
+    <result column="add_date_time" jdbcType="TIMESTAMP" property="addDateTime" />
+    <result column="desc" jdbcType="VARCHAR" property="desc" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, website_name, website_url, add_date_time, `desc`
+  </sql>
+</mapper>

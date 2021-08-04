@@ -1,0 +1,27 @@
+server:
+  port: 8001
+spring:
+  #设置上传文件大小
+  servlet:
+    multipart:
+      max-request-size: 50MB
+      max-file-size: 50MB
+  profiles:
+    active: @package.environment@
+# Mybatis
+mybatis:
+  type-aliases-package: com.ak47007.model
+  configuration:
+    #开启驼峰命名规则
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mapper/*.xml
+email:
+  # 发送邮箱
+  form-email: XXX@XXX.com
+  # 发送人用户名
+  send-user-name: XXX
+  # 邮箱授权密码
+  password: XXX
+  # SMTP服务器
+  smtp: XXX
+ip-key: XXX
