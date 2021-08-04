@@ -1,3 +1,7 @@
+# 文档未完善
+
+
+
 # 个人博客平台
 
 ## 预览
@@ -29,5 +33,19 @@
 
 # 后台
 
-预览地址: 正在部署中
+预览地址: https://blog.ak47007.com/backstage
+
+* 账号：admin
+* 密码：123456
+
+## 前端项目
+
+```bash
+# 安装需要的包
+npm install
+# 运行
+npm run dev
+# 打包
+npm run build:prod
+```
 
